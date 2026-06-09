@@ -29,6 +29,7 @@ admin-panel/node_modules/
 admin-panel/dist/
 user-app/node_modules/
 user-app/dist/
+user-app/.env
 
 # Laravel public (but not assets)
 backend/public/build/
