@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: shabakat-backend
+    runtime: image
+    dockerfilePath: backend/Dockerfile
+    repo: https://github.com/Aleshawee/shabakat-backend
+    branch: main
