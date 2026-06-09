@@ -1,0 +1,39 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea
+.vscode
+*.swp
+*.swo
+*~
+
+# PHP
+backend/vendor/
+backend/.env
+backend/.env.backup
+backend/.env.production
+backend/.phpunit.result.cache
+backend/storage/*.key
+backend/storage/app/tidb-ca.pem
+backend/storage/pail/
+backend/_ide_helper.php
+backend/Homestead.yaml
+backend/Homestead.json
+backend/auth.json
+backend/.phpactor.json
+
+# Node
+admin-panel/node_modules/
+admin-panel/dist/
+user-app/node_modules/
+user-app/dist/
+
+# Laravel public (but not assets)
+backend/public/build/
+backend/public/hot
+backend/public/storage
+
+# Logs
+*.log

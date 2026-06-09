@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>وثيقة متطلبات نظام مكافآت عملاء شبكات الإنترنت المحلية</title>
+    <!-- Tailwind CSS لجمالية التصميم والتحكم السلس -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- خط Tajawal الأنيق والمقروء -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: #f8fafc;
+            scroll-behavior: smooth;
+        }
+        /* تحسينات مخصصة لشريط التمرير */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body class="text-slate-700 antialiased leading-relaxed bg-slate-50">
+
+    <!-- شريط التنقل العلوي -->
+    <header class="bg-gradient-to-r from-violet-800 to-indigo-900 text-white shadow-md sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <span class="text-2xl animate-pulse">🎁</span>
+                <h1 class="text-lg md:text-xl font-bold tracking-wide">نظام مكافآت شبكات الإنترنت المحلية</h1>
+            </div>
+            <div class="flex items-center gap-2">
+                <span class="text-xs bg-indigo-950/60 text-indigo-200 px-3 py-1.5 rounded-full border border-indigo-500/30 font-medium">وثيقة المتطلبات الفنية الشاملة (PRD)</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- الهيكل الرئيسي للموقع (سلايدر جانبي + محتوى) -->
+    <div class="max-w-7xl mx-auto px-4 py-8 flex flex-col lg:flex-row gap-8">
+        
+        <!-- القائمة الجانبية للتنقل السريع بين الأقسام (Sidebar) -->
+        <aside class="lg:w-1/4 lg:sticky lg:top-24 h-fit bg-white rounded-2xl p-5 shadow-sm border border-slate-200/60 hidden lg:block">
+            <h3 class="font-bold text-slate-800 mb-4 pb-2 border-b border-slate-100 flex items-center gap-2">
+                <span>📋</span> فهرس الوثيقة
+            </h3>
+            <nav class="space-y-1">
+                <a href="#intro" class="block px-3 py-2 rounded-lg text-sm text-slate-600 hover:bg-violet-50 hover:text-violet-700 transition font-medium">المقدمة والتعريف بالنظام</a>
+                
+                <div class="pt-2">
+                    <span class="px-3 text-xs font-bold text-slate-400 uppercase tracking-wider block mb-1">أولاً: لوحة الإدارة</span>
+                    <a href="#admin-categories" class="block px-3 py-1.5 rounded-lg text-sm text-slate-600 hover:bg-violet-50 hover:text-violet-700 transition">1. إدارة الفئات والنقاط</a>
+                    <a href="#admin-cards" class="block px-3 py-1.5 rounded-lg text-sm text-slate-600 hover:bg-violet-50 hover:text-violet-700 transition">2. إدارة الكروت وتوزيعها</a>
+                    <a href="#admin-store" class="block px-3 py-1.5 rounded-lg text-sm text-slate-600 hover:bg-violet-50 hover:text-violet-700 transition">3. نظام المتجر الرقمي</a>
+                    <a href="#admin-users" class="block px-3 py-1.5 rounded-lg text-sm text-slate-600 hover:bg-violet-50 hover:text-violet-700 transition">4. إدارة المستخدمين والتلاعب</a>
+                    <a href="#admin-notifications" class="block px-3 py-1.5 rounded-lg text-sm text-slate-600 hover:bg-violet-50 hover:text-violet-700 transition">5. نظام الإشعارات والبنرات</a>
+                    <a href="#admin-sms" class="block px-3 py-1.5 rounded-lg text-sm text-slate-600 hover:bg-violet-50 hover:text-violet-700 transition">6. ربط بوابة الرسائل SMS</a>
+                    <a href="#admin-entertainment" class="block px-3 py-1.5 rounded-lg text-sm text-slate-600 hover:bg-violet-50 hover:text-violet-700 transition">7. ميزات الترفيه والولاء</a>
+                    <a href="#admin-analytics" class="block px-3 py-1.5 rounded-lg text-sm text-slate-600 hover:bg-violet-50 hover:text-violet-700 transition">8. التحليلات والمخططات</a>
+                    <a href="#admin-settings" class="block px-3 py-1.5 rounded-lg text-sm text-slate-600 hover:bg-violet-50 hover:text-violet-700 transition">9. السمات وقيود النشاط</a>
+                </div>
+
+                <div class="pt-3">
+                    <span class="px-3 text-xs font-bold text-slate-400 uppercase tracking-wider block mb-1">ثانياً: تطبيق المستخدم</span>
+                    <a href="#user-onboarding" class="block px-3 py-1.5 rounded-lg text-sm text-slate-600 hover:bg-violet-50 hover:text-violet-700 transition">1. التسجيل والتدريب</a>
+                    <a href="#user-dashboard" class="block px-3 py-1.5 rounded-lg text-sm text-slate-600 hover:bg-violet-50 hover:text-violet-700 transition">2. الواجهة الرئيسية والتحويل</a>
+                    <a href="#user-store" class="block px-3 py-1.5 rounded-lg text-sm text-slate-600 hover:bg-violet-50 hover:text-violet-700 transition">3. المتجر وطلباتي الشخصية</a>
+                    <a href="#user-logs" class="block px-3 py-1.5 rounded-lg text-sm text-slate-600 hover:bg-violet-50 hover:text-violet-700 transition">4. حركات الاستبدال والتعريف</a>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- المحتوى الفني الرئيسي للوثيقة -->
+        <main class="lg:w-3/4 space-y-8">
+            
+            <!-- مقدمة التعريف بالنظام -->
+            <section id="intro" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200/60 scroll-mt-24">
+                <h2 class="text-2xl font-bold mb-4 text-slate-800 flex items-center gap-2">
+                    <span class="text-violet-600">📌</span> المقدمة والتعريف بالنظام
+                </h2>
+                <p class="text-slate-600 leading-relaxed text-justify mb-6">
+                    يقوم أصحاب الشبكات المحلية التجارية بإعادة توزيع الإنترنت على الأحياء الصغيرة كمشروع تجاري بسيط. يشترك أصحاب هذه الشبكات بخطوط سريعة ومتعددة من مزود الخدمة الرسمي باشتراكات مختلفة الأنواع (<code class="bg-violet-50 text-violet-600 px-1.5 py-0.5 rounded font-mono text-xs">ADSL, Fiber</code>...) ثم عن طريق راوترات المايكروتيك (<code class="bg-violet-50 text-violet-600 px-1.5 py-0.5 rounded font-mono text-xs">MikroTik</code>) يقومون بدمج الخطوط وإعداد بروفايلات الاشتراكات بناءً على معايير وفئات محددة، ويتم توزيعها عبر نقاط وصول (<code class="bg-violet-50 text-violet-600 px-1.5 py-0.5 rounded font-mono text-xs">Access Points</code>) في مختلف الأحياء المجاورة.
+                </p>
+
+                <div class="grid md:grid-cols-3 gap-4 mb-6">
+                    <div class="bg-violet-50/50 p-4 rounded-xl border border-violet-100">
+                        <span class="text-2xl mb-2 block">🎫</span>
+                        <h3 class="font-bold text-violet-900 mb-1">شراء الكروت</h3>
+                        <p class="text-xs text-violet-700 leading-normal">يشتري المستخدمون كروت الإنترنت من نقاط البيع المنتشرة بأسعار (100، 200، 250، 300، 500 ريال).</p>
+                    </div>
+                    <div class="bg-emerald-50/50 p-4 rounded-xl border border-emerald-100">
+                        <span class="text-2xl mb-2 block">📈</span>
+                        <h3 class="font-bold text-emerald-900 mb-1">تجميع النقاط</h3>
+                        <p class="text-xs text-emerald-700 leading-normal">يسجل العميل الكرت في النظام للحصول فورياً ومطابقة الكرت بالنقاط المحددة للفئة من المالك.</p>
+                    </div>
+                    <div class="bg-amber-50/50 p-4 rounded-xl border border-amber-100">
+                        <span class="text-2xl mb-2 block">🎉</span>
+                        <h3 class="font-bold text-amber-900 mb-1">استبدال المكافآت</h3>
+                        <p class="text-xs text-amber-700 leading-normal">عند الوصول لعدد نقاط معين، يستبدلها المشترك مباشرة بكروت مكافآت إنترنت مجانية فورية.</p>
+                    </div>
+                </div>
+
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+                    <h4 class="font-bold text-slate-800 mb-2 flex items-center gap-2">
+                        <span>📞</span> آلية تسجيل وتوثيق حسابات المشتركين:
+                    </h4>
+                    <p class="text-sm text-slate-600">
+                        يتم التسجيل عن طريق رقم هاتف المشترك للحصول على كود تفعيل بـ <span class="font-bold text-violet-600">رسالة نصية SMS</span>. يمكن استخدام بوابات إرسال مجانية أو محدودة بالبداية كخيار اقتصادي، أو استخدام بوابات بديلة لإرسال الأكواد عبر <span class="font-bold text-emerald-600">واتساب (WhatsApp)</span>، أو التراجع لطرق التحقق التقليدية مؤقتاً لحين استقرار بوابة الرسائل.
+                    </p>
+                </div>
+            </section>
+
+            <!-- عنوان اللوحة الإدارية -->
+            <div class="border-t border-slate-200 pt-8">
+                <h2 class="text-2xl md:text-3xl font-extrabold text-slate-800 mb-6 flex items-center gap-3">
+                    <span class="bg-violet-600 text-white w-10 h-10 rounded-lg flex items-center justify-center text-xl shadow-md">⚙️</span>
+                    أولاً: لوحة تحكم الإدارة (Admin Dashboard)
+                </h2>
+
+                <!-- 1. إدارة الفئات والنقاط -->
+                <section id="admin-categories" class="bg-white rounded-2xl p-6 mb-8 shadow-sm border border-slate-200/60 scroll-mt-24">
+                    <h3 class="text-xl font-bold text-slate-800 mb-3 pb-3 border-b border-slate-100">1. إدارة الفئات والنقاط</h3>
+                    
+                    <h4 class="font-semibold text-violet-600 mb-1.5">أ. إدارة الفئات</h4>
+                    <p class="text-sm text-slate-600 mb-4">
+                        تسمح هذه الشاشة للآدمن بالتحكم الكامل في أنواع الكروت وقيمة النقاط لكل فئة (مثال: إضافة كرت فئة 200 ريال تمنح المشترك 20 نقطة) وتعديلها أو حذفها، مع إمكانية تحديد حالة ظهور أو إخفاء الفئة للمستخدمين.
+                    </p>
+
+                    <!-- واجهة إدارة فئات الكروت - صورة 1 -->
+                    <div class="mb-6 p-2 bg-slate-50 border border-slate-200 rounded-xl">
+                        <span class="text-xs text-slate-400 font-semibold uppercase block mb-1">📷 واجهة إدارة فئات الكروت (صورة 1)</span>
+                        <img src="images/image_1.png" onerror="this.src='https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80'" alt="إدارة فئات الكروت" class="rounded-lg w-full h-auto shadow-sm object-cover max-h-[380px]">
+                    </div>
+
+                    <h4 class="font-semibold text-violet-600 mb-1.5">ب. إدارة المكافآت</h4>
+                    <p class="text-sm text-slate-600 mb-4">
+                        شاشة مخصصة لإضافة وتعديل المكافآت المتوفرة بالشبكة، وتكلفة استبدال كل كرت بالنقاط مع حقول لإدخال تفاصيل الكروت الناتجة والوصف الاختياري.
+                    </p>
+
+                    <!-- واجهة المكافآت وإضافة مكافأة جديدة - صورة 2 و 3 -->
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="p-2 bg-slate-50 border border-slate-200 rounded-xl">
+                            <span class="text-xs text-slate-400 font-semibold uppercase block mb-1">📷 إدارة المكافآت الفعالة (صورة 2)</span>
+                            <img src="images/image_2.png" onerror="this.src='https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80'" alt="المكافآت الفعالة" class="rounded-lg w-full h-48 object-cover">
+                        </div>
+                        <div class="p-2 bg-slate-50 border border-slate-200 rounded-xl">
+                            <span class="text-xs text-slate-400 font-semibold uppercase block mb-1">📷 نافذة إضافة مكافأة جديدة (صورة 3)</span>
+                            <img src="images/image_3.png" onerror="this.src='https://images.unsplash.com/photo-1542744094-3a31f103e35f?auto=format&fit=crop&w=600&q=80'" alt="إضافة مكافأة جديدة" class="rounded-lg w-full h-48 object-cover">
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 2. إدارة الكروت -->
+                <section id="admin-cards" class="bg-white rounded-2xl p-6 mb-8 shadow-sm border border-slate-200/60 scroll-mt-24">
+                    <h3 class="text-xl font-bold text-slate-800 mb-3 pb-3 border-b border-slate-100">2. إدارة الكروت وتوزيعها</h3>
+                    
+                    <h4 class="font-semibold text-violet-600 mb-1.5">أ. إدارة كروت المكافأة</h4>
+                    <p class="text-sm text-slate-600 mb-4">
+                        شاشة التحكم وعرض الكروت المهيأة للاستبدال، مع تصفية دقيقة وإجراءات المسح والتعديل الفردي والجماعي. يتم الرفع برفع ملف <span class="font-mono bg-slate-100 px-1 text-xs text-violet-600">PDF</span> أو <span class="font-mono bg-slate-100 px-1 text-xs text-violet-600">CSV</span> مع تحديد الفئة وطول الكود.
+                        <br><strong class="text-amber-600 text-xs">⚠️ تنبيه أمني برمجى: كروت المكافآت المستبدلة لا تعطي أي نقاط للمستخدم في حال حاول إعادة شحنها بالنظام مجدداً لمنع التلاعب والاستغلال غير المشروع.</strong>
+                    </p>
+
+                    <!-- واجهات إدارة كروت المكافأة - صورة 4 و 5 -->
+                    <div class="grid md:grid-cols-2 gap-4 mb-6">
+                        <div class="p-2 bg-slate-50 border border-slate-200 rounded-xl">
+                            <span class="text-xs text-slate-400 font-semibold uppercase block mb-1">📷 كروت المكافآت في النظام (صورة 4)</span>
+                            <img src="images/image_4.png" onerror="this.src='https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=600&q=80'" alt="إدارة كروت المكافأة" class="rounded-lg w-full h-48 object-cover">
+                        </div>
+                        <div class="p-2 bg-slate-50 border border-slate-200 rounded-xl">
+                            <span class="text-xs text-slate-400 font-semibold uppercase block mb-1">📷 استيراد كروت مكافأة جديدة (صورة 5)</span>
+                            <img src="images/image_5.png" onerror="this.src='https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=600&q=80'" alt="رفع الكروت" class="rounded-lg w-full h-48 object-cover">
+                        </div>
+                    </div>
+
+                    <h4 class="font-semibold text-violet-600 mb-1.5">ب. إضافة كروت الشبكة الفعلية</h4>
+                    <p class="text-sm text-slate-600 mb-4">
+                        تضم الكروت الموزعة بنقاط البيع للمطابقة التلقائية مع ما يحاول المشترك شحنه بالنظام، لدفع النقاط تلقائياً في حال التطابق وضمان سلامة وموثوقية العملية.
+                    </p>
+
+                    <!-- واجهات كروت الشبكة الفعلية - صورة 6 و 7 -->
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="p-2 bg-slate-50 border border-slate-200 rounded-xl">
+                            <span class="text-xs text-slate-400 font-semibold uppercase block mb-1">📷 كروت الشبكة للمطابقة (صورة 6)</span>
+                            <img src="images/image_6.png" onerror="this.src='https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600&q=80'" alt="كروت الشبكة" class="rounded-lg w-full h-48 object-cover">
+                        </div>
+                        <div class="p-2 bg-slate-50 border border-slate-200 rounded-xl">
+                            <span class="text-xs text-slate-400 font-semibold uppercase block mb-1">📷 استيراد كروت شبكة جديدة (صورة 7)</span>
+                            <img src="images/image_7.png" onerror="this.src='https://images.unsplash.com/photo-1586281380349-632531db7ed4?auto=format&fit=crop&w=600&q=80'" alt="استيراد كروت الشبكة" class="rounded-lg w-full h-48 object-cover">
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 3. نظام المتجر -->
+                <section id="admin-store" class="bg-white rounded-2xl p-6 mb-8 shadow-sm border border-slate-200/60 scroll-mt-24">
+                    <h3 class="text-xl font-bold text-slate-800 mb-3 pb-3 border-b border-slate-100">3. نظام المتجر الرقمي (قيد التطوير)</h3>
+                    <p class="text-sm text-slate-600 mb-4">
+                        يوفر النظام إمكانية شحن رصيد مالي بالعملة المحلية عبر تحويلات مالية محلية لتتحول لرصيد بمحفظة المنصة لشراء منتجات معروضة أو كروت حقيقية لزيادة أرباح مالك المشروع. وتتكامل بالإدارة شاشات إدارة المنتجات، الحسابات المالية، والمبيعات، ومحافظ المستخدمين.
+                    </p>
+
+                    <!-- واجهات المتجر وإدارته - صورة 8 إلى 13 -->
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                        <div class="p-2 bg-slate-50 border border-slate-200 rounded-xl">
+                            <span class="text-xs text-slate-400 font-semibold uppercase block mb-1">📷 لوحة التحكم المالية (صورة 8)</span>
+                            <img src="images/image_8.png" onerror="this.src='https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=400&q=80'" alt="التحليلات المالية" class="rounded-lg w-full h-32 object-cover">
+                        </div>
+                        <div class="p-2 bg-slate-50 border border-slate-200 rounded-xl">
+                            <span class="text-xs text-slate-400 font-semibold uppercase block mb-1">📷 إدارة المنتجات (صورة 9)</span>
+                            <img src="images/image_9.png" onerror="this.src='https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=400&q=80'" alt="إدارة المنتجات" class="rounded-lg w-full h-32 object-cover">
+                        </div>
+                        <div class="p-2 bg-slate-50 border border-slate-200 rounded-xl">
+                            <span class="text-xs text-slate-400 font-semibold uppercase block mb-1">📷 إدارة كروت المتجر (صورة 10)</span>
+                            <img src="images/image_10.png" onerror="this.src='https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=400&q=80'" alt="كروت المتجر" class="rounded-lg w-full h-32 object-cover">
+                        </div>
+                        <div class="p-2 bg-slate-50 border border-slate-200 rounded-xl">
+                            <span class="text-xs text-slate-400 font-semibold uppercase block mb-1">📷 مبيعات المتجر (صورة 11)</span>
+                            <img src="images/image_11.png" onerror="this.src='https://images.unsplash.com/photo-1508170754725-6e9a5cfbcabf?auto=format&fit=crop&w=400&q=80'" alt="إدارة المبيعات" class="rounded-lg w-full h-32 object-cover">
+                        </div>
+                        <div class="p-2 bg-slate-50 border border-slate-200 rounded-xl">
+                            <span class="text-xs text-slate-400 font-semibold uppercase block mb-1">📷 الحسابات المالية (صورة 12)</span>
+                            <img src="images/image_12.png" onerror="this.src='https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=400&q=80'" alt="الحسابات" class="rounded-lg w-full h-32 object-cover">
+                        </div>
+                        <div class="p-2 bg-slate-50 border border-slate-200 rounded-xl">
+                            <span class="text-xs text-slate-400 font-semibold uppercase block mb-1">📷 محافظ المشتركين (صورة 13)</span>
+                            <img src="images/image_13.png" onerror="this.src='https://images.unsplash.com/photo-1518546305927-5a555bb7020d?auto=format&fit=crop&w=400&q=80'" alt="محافظ المشتركين" class="rounded-lg w-full h-32 object-cover">
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 4. إدارة المستخدمين والصلاحيات -->
+                <section id="admin-users" class="bg-white rounded-2xl p-6 mb-8 shadow-sm border border-slate-200/60 scroll-mt-24">
+                    <h3 class="text-xl font-bold text-slate-800 mb-3 pb-3 border-b border-slate-100">4. إدارة المستخدمين والتلاعب بالنقاط</h3>
+                    
+                    <h4 class="font-semibold text-violet-600 mb-1.5">أ. إدارة المديرين</h4>
+                    <p class="text-sm text-slate-600 mb-4">
+                        يتيح النظام لمالك المشروع توزيع المهام بين طاقم العمل بصلاحيات متباينة، بإنشاء حسابات <span class="font-bold text-slate-850">سوبر أدمن (Super Admin)</span> ذي صلاحيات كاملة ومطلقة، أو <span class="font-bold text-slate-850">مدير عادي (Admin)</span> بصلاحيات تشغيلية محددة.
+                    </p>
+
+                    <!-- واجهة إدارة حسابات المديرين - صورة 14 -->
+                    <div class="mb-6 p-2 bg-slate-50 border border-slate-200 rounded-xl">
+                        <span class="text-xs text-slate-400 font-semibold uppercase block mb-1">📷 إدارة حسابات المديرين (صورة 14)</span>
+                        <img src="images/image_14.png" onerror="this.src='https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80'" alt="إدارة المديرين" class="rounded-lg w-full h-auto shadow-sm object-cover max-h-[300px]">
+                    </div>
+
+                    <h4 class="font-semibold text-violet-600 mb-1.5">ب. إدارة العملاء</h4>
+                    <p class="text-sm text-slate-600 mb-4">
+                        شاشة تحكم شاملة لعرض العملاء المسجلين والتحكم بحالات حساباتهم (نشط، معطل، محظور)، مع أدوات للتجميد وسجل مراقبة العمليات والحركات.
+                    </p>
+
+                    <!-- واجهة إدارة العملاء والنشاط - صورة 15 -->
+                    <div class="mb-6 p-2 bg-slate-50 border border-slate-200 rounded-xl">
+                        <span class="text-xs text-slate-400 font-semibold uppercase block mb-1">📷 إدارة العملاء وحالات الحساب (صورة 15)</span>
+                        <img src="images/image_15.png" onerror="this.src='https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80'" alt="إدارة العملاء" class="rounded-lg w-full h-auto shadow-sm object-cover max-h-[300px]">
+                    </div>
+
+                    <h4 class="font-semibold text-violet-600 mb-1.5">ج. تتبع الأجهزة متعددة الحسابات (كشف الاحتيال والتلاعب بالنقاط)</h4>
+                    <p class="text-sm text-slate-600 mb-4">
+                        يتتبع النظام الحسابات المتعددة التي تسجل من نفس الهاتف الفعلي باستخدام معرّف الجهاز (<code class="bg-violet-50 text-violet-600 px-1 text-xs">Device ID</code>) أو البصمة الرقمية للحد من استغلال نقاط الترحيب عبر شرائح اتصال متعددة وتجميع النقاط بطرق احتيالية.
+                    </p>
+
+                    <!-- واجهة كشف حسابات الأجهزة المتعددة - صورة 16 -->
+                    <div class="p-2 bg-slate-50 border border-slate-200 rounded-xl">
+                        <span class="text-xs text-slate-400 font-semibold uppercase block mb-1">📷 كشف الأجهزة متعددة الحسابات ومستويات الخطر (صورة 16)</span>
+                        <img src="images/image_16.png" onerror="this.src='https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80'" alt="تتبع المتلاعبين" class="rounded-lg w-full h-auto shadow-sm object-cover max-h-[300px]">
+                    </div>
+                </section>
+
+                <!-- 5. نظام الإشعارات والبانرات الإعلانية -->
+                <section id="admin-notifications" class="bg-white rounded-2xl p-6 mb-8 shadow-sm border border-slate-200/60 scroll-mt-24">
+                    <h3 class="text-xl font-bold text-slate-800 mb-3 pb-3 border-b border-slate-100">5. نظام الإشعارات والبانرات الإعلانية</h3>
+                    
+                    <h4 class="font-semibold text-violet-600 mb-1.5">أ. إشعار للنظام</h4>
+                    <p class="text-sm text-slate-600 mb-4">
+                        واجهة بث وتوجيه إشعارات منبثقة مخصصة لجمهور محدد مع توافر شريط معاينة يحاكي مظهر الإشعار الحقيقي وكيف سيظهر على شاشات هواتف العملاء قبل الاعتماد والإرسال.
+                    </p>
+
+                    <!-- واجهة إنشاء إشعار للنظام مع المعاينة الحية - صورة 17 -->
+                    <div class="mb-6 p-2 bg-slate-50 border border-slate-200 rounded-xl">
+                        <span class="text-xs text-slate-400 font-semibold uppercase block mb-1">📷 شاشة إنشاء إشعار للنظام مع المعاينة (صورة 17)</span>
+                        <img src="images/image_17.png" onerror="this.src='https://images.unsplash.com/photo-1557200134-90327ee9fafa?auto=format&fit=crop&w=1200&q=80'" alt="إنشاء إشعار" class="rounded-lg w-full h-auto shadow-sm object-cover max-h-[300px]">
+                    </div>
+
+                    <!-- سجل البانرات والإعلانات - صور 18 و 19 و 20 -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="p-2 bg-slate-50 border border-slate-200 rounded-xl">
+                            <span class="text-xs text-slate-400 font-semibold uppercase block mb-1">📷 البانر الإعلاني وإدارة العروض (صورة 18)</span>
+                            <img src="images/image_18.png" onerror="this.src='https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=400&q=80'" alt="البانرات" class="rounded-lg w-full h-32 object-cover">
+                        </div>
+                        <div class="p-2 bg-slate-50 border border-slate-200 rounded-xl">
+                            <span class="text-xs text-slate-400 font-semibold uppercase block mb-1">📷 سجل الإشعارات والرسائل (صورة 19)</span>
+                            <img src="images/image_19.png" onerror="this.src='https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=400&q=80'" alt="سجل الإشعارات" class="rounded-lg w-full h-32 object-cover">
+                        </div>
+                        <div class="p-2 bg-slate-50 border border-slate-200 rounded-xl">
+                            <span class="text-xs text-slate-400 font-semibold uppercase block mb-1">📷 إشعارات العامة والزوار (صورة 20)</span>
+                            <img src="images/image_20.png" onerror="this.src='https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=400&q=80'" alt="إشعارات العامة" class="rounded-lg w-full h-32 object-cover">
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 6. خدمة الرسائل (SMS Gateway) -->
+                <section id="admin-sms" class="bg-white rounded-2xl p-6 mb-8 shadow-sm border border-slate-200/60 scroll-mt-24">
+                    <h3 class="text-xl font-bold text-slate-800 mb-3 pb-3 border-b border-slate-100">6. إعدادات بوابة الرسائل (SMS Gateway)</h3>
+                    <p class="text-sm text-slate-600 mb-4">
+                        واجهة ضبط وتهيئة ربط بوابات الرسائل القصيرة (<code class="bg-violet-50 text-violet-600 px-1 text-xs">SMS APIs</code>) لتمكين إرسال أكواد تفعيل وتوثيق حسابات المشتركين الجدد والتحقق الذاتي بسلاسة وأمان.
+                    </p>
+
+                    <!-- واجهة إعدادات البوابة - صورة 21 -->
+                    <div class="p-2 bg-slate-50 border border-slate-200 rounded-xl">
+                        <span class="text-xs text-slate-400 font-semibold uppercase block mb-1">📷 ربط بوابات الرسائل وتوثيق الـ API (صورة 21)</span>
+                        <img src="images/image_21.png" onerror="this.src='https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80'" alt="بوابة الرسائل" class="rounded-lg w-full h-auto shadow-sm object-cover max-h-[300px]">
+                    </div>
+                </section>
+
+                <!-- 7. ميزات الترفيه والولاء المستمر -->
+                <section id="admin-entertainment" class="bg-white rounded-2xl p-6 mb-8 shadow-sm border border-slate-200/60 scroll-mt-24">
+                    <h3 class="text-xl font-bold text-slate-800 mb-3 pb-3 border-b border-slate-100">7. ميزات الترفيه والولاء المستمر</h3>
+                    
+                    <h4 class="font-semibold text-violet-600 mb-1.5">أ. خدمة "أبشر" أو "سلفني نقاط"</h4>
+                    <p class="text-sm text-slate-600 mb-4">
+                        ميزة تسمح للمستخدم باقتراض نقاط محددة مسبقاً للحصول على كرت فوري عندما لا يملك رصيد نقاط، على أن يخصم النظام قيمة السلفة مستقبلاً من رصيده (مما يجعله بالسالب)، مع إمكانية تحديد تكلفتها الإضافية كرسوم خدمة، والحد الأدنى للنقاط كأهلية وشروط للعمل وأوقات التفعيل اليومي.
+                    </p>
+
+                    <!-- واجهات خدمة أبشر والضبط - صورة 22 و 23 -->
+                    <div class="grid md:grid-cols-2 gap-4 mb-6">
+                        <div class="p-2 bg-slate-50 border border-slate-200 rounded-xl">
+                            <span class="text-xs text-slate-400 font-semibold uppercase block mb-1">📷 إعداد ميزة السلفة وتكلفة النقاط (صورة 22)</span>
+                            <img src="images/image_22.png" onerror="this.src='https://images.unsplash.com/photo-1559526324-c1f275fbfa32?auto=format&fit=crop&w=600&q=80'" alt="إعداد خدمة أبشر" class="rounded-lg w-full h-48 object-cover">
+                        </div>
+                        <div class="p-2 bg-slate-50 border border-slate-200 rounded-xl">
+                            <span class="text-xs text-slate-400 font-semibold uppercase block mb-1">📷 شروط الأهلية وأوقات تفعيل السلفة (صورة 23)</span>
+                            <img src="images/image_23.png" onerror="this.src='https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=600&q=80'" alt="شروط خدمة أبشر" class="rounded-lg w-full h-48 object-cover">
+                        </div>
+                    </div>
+
+                    <h4 class="font-semibold text-violet-600 mb-1.5">ب. مسابقة صندوق الحظ (Lucky Box)</h4>
+                    <p class="text-sm text-slate-600 mb-4">
+                        ميزة تفاعلية لزيادة ارتباط العملاء بالمنصة، يقوم المستخدم عبرها بفتح صندوق الحظ مقابل نقاط وتحديد نسب الفوز بالنقاط أو الهدايا أو الكروت وجوائز حظ أوفر عبر ضبط احتمالاتها الرياضية بدقة من الإدارة.
+                    </p>
+
+                    <!-- واجهة احتمالات وجوائز صندوق الحظ - صورة 24 -->
+                    <div class="mb-6 p-2 bg-slate-50 border border-slate-200 rounded-xl">
+                        <span class="text-xs text-slate-400 font-semibold uppercase block mb-1">📷 تصميم وإعداد نسب جوائز صندوق الحظ (صورة 24)</span>
+                        <img src="images/image_24.png" onerror="this.src='https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=1200&q=80'" alt="صندوق الحظ" class="rounded-lg w-full h-auto shadow-sm object-cover max-h-[300px]">
+                    </div>
+
+                    <h4 class="font-semibold text-violet-600 mb-1.5">ج. تحويل النقاط</h4>
+                    <p class="text-sm text-slate-600 mb-4">
+                        تفعيل وإيقاف ميزة نقل وتداول النقاط بين المشتركين بالشبكة كنوع من الهدايا والتبادل، مع إعداد العمولات المفروضة عليها والحدود الدنيا.
+                    </p>
+
+                    <!-- واجهة تحويل النقاط للعملاء وقواعدها - صورة 25 -->
+                    <div class="mb-6 p-2 bg-slate-50 border border-slate-200 rounded-xl">
+                        <span class="text-xs text-slate-400 font-semibold uppercase block mb-1">📷 إعدادات ميزة تداول ونقل النقاط للعملاء (صورة 25)</span>
+                        <img src="images/image_25.png" onerror="this.src='https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=1200&q=80'" alt="تحويل النقاط" class="rounded-lg w-full h-auto shadow-sm object-cover max-h-[300px]">
+                    </div>
+
+                    <h4 class="font-semibold text-violet-600 mb-1.5">د. مسابقات التوقعات الرياضية</h4>
+                    <p class="text-sm text-slate-600 mb-4">
+                        عرض المباريات القادمة وإضافة فعاليات توقعات رياضية كبرى برسم اشتراك بالنقاط أو مجاني مع تحديد جوائز ومبالغ الفائزين وتاريخ الإغلاق.
+                    </p>
+
+                    <!-- واجهات مسابقة التوقعات وإضافتها - صورة 26 و 27 -->
+                    <div class="grid md:grid-cols-2 gap-4 mb-6">
+                        <div class="p-2 bg-slate-50 border border-slate-200 rounded-xl">
+                            <span class="text-xs text-slate-400 font-semibold uppercase block mb-1">📷 شاشة جلب وإدارة المباريات الحالية (صورة 26)</span>
+                            <img src="images/image_26.png" onerror="this.src='https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=600&q=80'" alt="مسابقات التوقعات" class="rounded-lg w-full h-48 object-cover">
+                        </div>
+                        <div class="p-2 bg-slate-50 border border-slate-200 rounded-xl">
+                            <span class="text-xs text-slate-400 font-semibold uppercase block mb-1">📷 نافذة إنشاء وإغلاق حدث مسابقة رياضي (صورة 27)</span>
+                            <img src="images/image_27.png" onerror="this.src='https://images.unsplash.com/photo-1518063319789-7217e6706b04?auto=format&fit=crop&w=600&q=80'" alt="إنشاء مسابقة" class="rounded-lg w-full h-48 object-cover">
+                        </div>
+                    </div>
+
+                    <h4 class="font-semibold text-violet-600 mb-1.5">هـ. مسابقات الأسئلة والفعاليات الثقافية</h4>
+                    <p class="text-sm text-slate-600 mb-4">
+                        إضافة أسئلة والتحكم بالمتصدرين وإحصائياتها الكاملة كأحد حلول تفعيل تواجد المستخدمين داخل الشبكة.
+                    </p>
+
+                    <!-- واجهة إدارة المسابقات العامة والأسئلة - صورة 28 -->
+                    <div class="mb-6 p-2 bg-slate-50 border border-slate-200 rounded-xl">
+                        <span class="text-xs text-slate-400 font-semibold uppercase block mb-1">📷 لوحة إدارة المسابقات الثقافية والأسئلة (صورة 28)</span>
+                        <img src="images/image_28.png" onerror="this.src='https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=1200&q=80'" alt="المسابقات العامة" class="rounded-lg w-full h-auto shadow-sm object-cover max-h-[300px]">
+                    </div>
+
+                    <h4 class="font-semibold text-violet-600 mb-1.5">و. عجلة الحظ الدوارة (Lucky Wheel)</h4>
+                    <p class="text-sm text-slate-600 mb-4">
+                        لعبة تفاعلية لعجلة الحظ، يتيح الآدمن عبرها التحكم برسوم كل لفة، وتوفير محاولات مجانية يومية، وتنسيق الألوان وتحديد نسب الفوز بالنقاط أو الهدايا الممتازة.
+                    </p>
+
+                    <!-- واجهة إعداد احتمالات وجوائز عجلة الحظ - صورة 29 -->
+                    <div class="p-2 bg-slate-50 border border-slate-200 rounded-xl">
+                        <span class="text-xs text-slate-400 font-semibold uppercase block mb-1">📷 واجهة ضبط وجدول أوزان جوائز عجلة الحظ (صورة 29)</span>
+                        <img src="images/image_29.png" onerror="this.src='https://images.unsplash.com/photo-1596838132731-3301c3fd4317?auto=format&fit=crop&w=1200&q=80'" alt="عجلة الحظ" class="rounded-lg w-full h-auto shadow-sm object-cover max-h-[300px]">
+                    </div>
+                </section>
+
+                <!-- 8. التحليات والاحصائيات -->
+                <section id="admin-analytics" class="bg-white rounded-2xl p-6 mb-8 shadow-sm border border-slate-200/60 scroll-mt-24">
+                    <h3 class="text-xl font-bold text-slate-800 mb-3 pb-3 border-b border-slate-100">8. التحليلات البيانية والمخططات الرسومية</h3>
+                    <p class="text-sm text-slate-600 mb-4">
+                        مجموعة واجهات تفصيلية لإحصائيات العمل وقياس أداء الأنشطة، تعرض إحصائيات الكروت النشطة والمستردة ومصادر الحصول على نقاط الجوائز، إلى جانب قائمة المتصدرين لأفضل المستخدمين بالشبكة.
+                    </p>
+
+                    <!-- التحليلات والمخططات العامة - صور 30 و 31 و 32 -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="p-2 bg-slate-50 border border-slate-200 rounded-xl">
+                            <span class="text-xs text-slate-400 font-semibold uppercase block mb-1">📷 لوحة التحليلات والمؤشرات (صورة 30)</span>
+                            <img src="images/image_30.png" onerror="this.src='https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=400&q=80'" alt="مؤشرات الأداء" class="rounded-lg w-full h-48 object-cover">
+                        </div>
+                        <div class="p-2 bg-slate-50 border border-slate-200 rounded-xl">
+                            <span class="text-xs text-slate-400 font-semibold uppercase block mb-1">📷 توزيع كروت الشحن ونشاطها (صورة 31)</span>
+                            <img src="images/image_31.png" onerror="this.src='https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=400&q=80'" alt="مخططات الكروت" class="rounded-lg w-full h-48 object-cover">
+                        </div>
+                        <div class="p-2 bg-slate-50 border border-slate-200 rounded-xl">
+                            <span class="text-xs text-slate-400 font-semibold uppercase block mb-1">📷 قائمة العشرة المتصدرين (صورة 32)</span>
+                            <img src="images/image_32.png" onerror="this.src='https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=400&q=80'" alt="المتصدرون" class="rounded-lg w-full h-48 object-cover">
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 9. تفعيل الميزات والعمليات والسمات والقيود -->
+                <section id="admin-settings" class="bg-white rounded-2xl p-6 mb-8 shadow-sm border border-slate-200/60 scroll-mt-24">
+                    <h3 class="text-xl font-bold text-slate-800 mb-3 pb-3 border-b border-slate-100">9. إدارة تفعيل الميزات والسمات والقيود والدعم المباشر</h3>
+                    
+                    <h4 class="font-semibold text-violet-600 mb-1.5">أ. لوحة تفعيل الميزات والسمات وسجل الحركات والعمليات وقنوات البث المحلي</h4>
+                    <p class="text-sm text-slate-600 mb-4">
+                        توفر لوحة التحكم واجهات تفعيل/تعطيل الميزات الكلية للشبكة بضغطة زر واحدة (عبر الـ Feature Toggles)، وسجل شامل لمراقبة حركات استبدال النقاط ومصادرها بالمنصة لضمان الأمان والشفافية التامة، بالإضافة إلى تخصيص قنوات البث التلفزيوني المحلي للعملاء وأدوات تعديل الهوية البصرية للشبكة.
+                    </p>
+
+                    <!-- واجهات تفعيل السمات والميزات وقنوات البث - صور 33 إلى 36 -->
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                        <div class="p-2 bg-slate-50 border border-slate-200 rounded-xl">
+                            <span class="text-xs text-slate-400 font-semibold uppercase block mb-1">📷 تفعيل الميزات (صورة 33)</span>
+                            <img src="images/image_33.png" onerror="this.src='https://images.unsplash.com/photo-1518152006812-edab29b069ac?auto=format&fit=crop&w=300&q=80'" alt="لوحة الميزات" class="rounded-lg w-full h-24 object-cover">
+                        </div>
+                        <div class="p-2 bg-slate-50 border border-slate-200 rounded-xl">
+                            <span class="text-xs text-slate-400 font-semibold uppercase block mb-1">📷 سجل العمليات (صورة 34)</span>
+                            <img src="images/image_34.png" onerror="this.src='https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=300&q=80'" alt="سجل العمليات" class="rounded-lg w-full h-24 object-cover">
+                        </div>
+                        <div class="p-2 bg-slate-50 border border-slate-200 rounded-xl">
+                            <span class="text-xs text-slate-400 font-semibold uppercase block mb-1">📷 قنوات البث (صورة 35)</span>
+                            <img src="images/image_35.png" onerror="this.src='https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?auto=format&fit=crop&w=300&q=80'" alt="قنوات البث" class="rounded-lg w-full h-24 object-cover">
+                        </div>
+                        <div class="p-2 bg-slate-50 border border-slate-200 rounded-xl">
+                            <span class="text-xs text-slate-400 font-semibold uppercase block mb-1">📷 لوحة الألوان والثيمات (صورة 36)</span>
+                            <img src="images/image_36.png" onerror="this.src='https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=300&q=80'" alt="الألوان والثيمات" class="rounded-lg w-full h-24 object-cover">
+                        </div>
+                    </div>
+
+                    <h4 class="font-semibold text-violet-600 mb-1.5">ب. إعداد قيود الخمول والحد اليومي وتصفير النقاط</h4>
+                    <p class="text-sm text-slate-600 mb-4">
+                        يتيح النظام لمالك المشروع الحد من الاعتماد الكلي على الترفيه والمسابقات المجانية وحث المستخدمين لشراء كروت فعلية لشبكتك عبر منع تفعيل أنشطة الترفيه أو تجميد الحسابات مؤقتاً في حال تجاوز عدد الأيام منذ شحن آخر كوبون القيمة الافتراضية، إلى جانب تفعيل الحدود اليومية لشحن الكروت والتحكم المجدول بتصفير النقاط نهاية الشهر لضمان التوازن المالي للشبكة.
+                    </p>
+
+                    <!-- واجهات قيود النشاط والتصفير والحد اليومي - صور 37 و 38 و 39 -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="p-2 bg-slate-50 border border-slate-200 rounded-xl">
+                            <span class="text-xs text-slate-400 font-semibold uppercase block mb-1">📷 إعداد قيود شحن الكوبونات وتجميد الحساب (صورة 37)</span>
+                            <img src="images/image_37.png" onerror="this.src='https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=400&q=80'" alt="قيود النشاط" class="rounded-lg w-full h-48 object-cover">
+                        </div>
+                        <div class="p-2 bg-slate-50 border border-slate-200 rounded-xl">
+                            <span class="text-xs text-slate-400 font-semibold uppercase block mb-1">📷 ضبط حدود الكروت والمنع اليومي للتخمين (صورة 38)</span>
+                            <img src="images/image_38.png" onerror="this.src='https://images.unsplash.com/photo-1508873535684-277a3cbcc4e8?auto=format&fit=crop&w=400&q=80'" alt="حد الكروت" class="rounded-lg w-full h-48 object-cover">
+                        </div>
+                        <div class="p-2 bg-slate-50 border border-slate-200 rounded-xl">
+                            <span class="text-xs text-slate-400 font-semibold uppercase block mb-1">📷 جدولة وإعلان تصفير نقاط حسابات المشتركين (صورة 39)</span>
+                            <img src="images/image_39.png" onerror="this.src='https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=400&q=80'" alt="تصفير النقاط" class="rounded-lg w-full h-48 object-cover">
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- عنوان تطبيق المستخدم -->
+            <div class="border-t border-slate-200 pt-8 mt-12">
+                <h2 class="text-2xl md:text-3xl font-extrabold text-slate-800 mb-6 flex items-center gap-3">
+                    <span class="bg-violet-600 text-white w-10 h-10 rounded-lg flex items-center justify-center text-xl shadow-md">📱</span>
+                    ثانياً: واجهات تجربة مستخدم الشبكة (User Application)
+                </h2>
+
+                <!-- 1. واجهات التسجيل والتدريب -->
+                <section id="user-onboarding" class="bg-white rounded-2xl p-6 mb-8 shadow-sm border border-slate-200/60 scroll-mt-24">
+                    <h3 class="text-xl font-bold text-slate-800 mb-3 pb-3 border-b border-slate-100">1. واجهات التسجيل والتوثيق للمشتركين</h3>
+                    <p class="text-sm text-slate-600 mb-4">
+                        مجموعة نوافذ ترحيبية وتوضيحية للعميل الجديد تضمن تبسيط خطوات تفعيل واستخدام المنصة، وحث المستخدم على إكمال عملية التسجيل وتلقي رمز الـ SMS بنجاح وسهولة.
+                    </p>
+
+                    <!-- واجهات التسجيل وحقول البيانات - صور 40 و 41 و 42 -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="p-2 bg-slate-50 border border-slate-200 rounded-xl">
+                            <span class="text-xs text-slate-400 font-semibold uppercase block mb-1">📷 شاشة الإرشاد لعمل الحساب الجديد (صورة 40)</span>
+                            <img src="images/image_40.png" onerror="this.src='https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=400&q=80'" alt="خطوات عمل حساب" class="rounded-lg w-full h-64 object-cover">
+                        </div>
+                        <div class="p-2 bg-slate-50 border border-slate-200 rounded-xl">
+                            <span class="text-xs text-slate-400 font-semibold uppercase block mb-1">📷 شاشة ملء البيانات وتأكيد الهاتف (صورة 41)</span>
+                            <img src="images/image_41.png" onerror="this.src='https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=400&q=80'" alt="تأكيد الهاتف" class="rounded-lg w-full h-64 object-cover">
+                        </div>
+                        <div class="p-2 bg-slate-50 border border-slate-200 rounded-xl">
+                            <span class="text-xs text-slate-400 font-semibold uppercase block mb-1">📷 شاشة تأكيد رمز التفعيل بـ SMS (صورة 42)</span>
+                            <img src="images/image_42.png" onerror="this.src='https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=400&q=80'" alt="رمز التفعيل" class="rounded-lg w-full h-64 object-cover">
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 2. الواجهة الرئيسية والمكافآت والتحويل للمشترك -->
+                <section id="user-dashboard" class="bg-white rounded-2xl p-6 mb-8 shadow-sm border border-slate-200/60 scroll-mt-24">
+                    <h3 class="text-xl font-bold text-slate-800 mb-3 pb-3 border-b border-slate-100">2. الواجهة الرئيسية ورصيد النقاط والتحويل السريع للأصدقاء</h3>
+                    <p class="text-sm text-slate-600 mb-4">
+                        تضم واجهة المشترك لوحة تحكم عصرية تعرض هويته البصرية ونوع باقته، ورصيد نقاطه، ومحفظة المتجر، إلى جانب بطاقات الكروت المستبدلة بالنقاط واستعراض نافذة تحويل رصيد النقاط للأصدقاء.
+                    </p>
+
+                    <!-- واجهة المستخدم والتحويل - صور 43 و 44 و 49 و 50 -->
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <div class="p-2 bg-slate-50 border border-slate-200 rounded-xl">
+                            <span class="text-xs text-slate-400 font-semibold uppercase block mb-1">📷 لوحة المشترك ورصيده (صورة 43)</span>
+                            <img src="images/image_43.png" onerror="this.src='https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=300&q=80'" alt="لوحة المشترك" class="rounded-lg w-full h-36 object-cover">
+                        </div>
+                        <div class="p-2 bg-slate-50 border border-slate-200 rounded-xl">
+                            <span class="text-xs text-slate-400 font-semibold uppercase block mb-1">📷 شاشة استبدال النقاط (صورة 44)</span>
+                            <img src="images/image_44.png" onerror="this.src='https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=300&q=80'" alt="استبدال المكافآت" class="rounded-lg w-full h-36 object-cover">
+                        </div>
+                        <div class="p-2 bg-slate-50 border border-slate-200 rounded-xl">
+                            <span class="text-xs text-slate-400 font-semibold uppercase block mb-1">📷 أنواع الكروت والنقاط (صورة 49)</span>
+                            <img src="images/image_49.png" onerror="this.src='https://images.unsplash.com/photo-1518152006812-edab29b069ac?auto=format&fit=crop&w=300&q=80'" alt="أنواع الكروت" class="rounded-lg w-full h-36 object-cover">
+                        </div>
+                        <div class="p-2 bg-slate-50 border border-slate-200 rounded-xl">
+                            <span class="text-xs text-slate-400 font-semibold uppercase block mb-1">📷 تحويل النقاط لصديق (صورة 50)</span>
+                            <img src="images/image_50.png" onerror="this.src='https://images.unsplash.com/photo-1596838132731-3301c3fd4317?auto=format&fit=crop&w=300&q=80'" alt="تحويل لصديق" class="rounded-lg w-full h-36 object-cover">
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 3. نظام المتجر وطلباتي الشخصية -->
+                <section id="user-store" class="bg-white rounded-2xl p-6 mb-8 shadow-sm border border-slate-200/60 scroll-mt-24">
+                    <h3 class="text-xl font-bold text-slate-800 mb-3 pb-3 border-b border-slate-100">3. متجر المنتجات الرقمية وشراء كروت الإنترنت بالنقود</h3>
+                    <p class="text-sm text-slate-600 mb-4">
+                        الواجهة الخاصة بمحفظة المستخدم لشحن رصيده المالي محلياً لشراء المنتجات الرقمية أو كروت الباقات الحقيقية، وسجل الحسابات والطلبات وتفاصيل الأكواد المستلمة.
+                    </p>
+
+                    <!-- واجهات المتجر والمنتجات للمستخدم - صور 45 و 46 و 47 -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="p-2 bg-slate-50 border border-slate-200 rounded-xl">
+                            <span class="text-xs text-slate-400 font-semibold uppercase block mb-1">📷 متجر شراء كروت الإنترنت (صورة 45)</span>
+                            <img src="images/image_45.png" onerror="this.src='https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=400&q=80'" alt="متجر الشراء" class="rounded-lg w-full h-36 object-cover">
+                        </div>
+                        <div class="p-2 bg-slate-50 border border-slate-200 rounded-xl">
+                            <span class="text-xs text-slate-400 font-semibold uppercase block mb-1">📷 قائمة طلباتي المالية بالمتجر (صورة 46)</span>
+                            <img src="images/image_46.png" onerror="this.src='https://images.unsplash.com/photo-1508170754725-6e9a5cfbcabf?auto=format&fit=crop&w=400&q=80'" alt="طلباتي" class="rounded-lg w-full h-36 object-cover">
+                        </div>
+                        <div class="p-2 bg-slate-50 border border-slate-200 rounded-xl">
+                            <span class="text-xs text-slate-400 font-semibold uppercase block mb-1">📷 كروتي ومشترياتي من المتجر (صورة 47)</span>
+                            <img src="images/image_47.png" onerror="this.src='https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=400&q=80'" alt="مشترياتي" class="rounded-lg w-full h-36 object-cover">
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 4. حركات الاستبدال والتعريف -->
+                <section id="user-logs" class="bg-white rounded-2xl p-6 mb-8 shadow-sm border border-slate-200/60 scroll-mt-24">
+                    <h3 class="text-xl font-bold text-slate-800 mb-3 pb-3 border-b border-slate-100">4. سجل تتبع الحركات والعمليات للمشتركين</h3>
+                    <p class="text-sm text-slate-600 mb-4">
+                        شاشة شفافة بالكامل تتيح للمشتركين مراجعة وتتبع حركات نقاطهم وعمليات التجميع بالتاريخ والوقت، وحساب كروت الجوائز ومصادر تجميعها.
+                    </p>
+
+                    <!-- واجهة سجل العمليات للمستخدم - صورة 48 -->
+                    <div class="p-2 bg-slate-50 border border-slate-200 rounded-xl">
+                        <span class="text-xs text-slate-400 font-semibold uppercase block mb-1">📷 سجل حركات النقاط ومصادر كسبها للعميل (صورة 48)</span>
+                        <img src="images/image_48.png" onerror="this.src='https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80'" alt="حركات النقاط" class="rounded-lg w-full h-auto shadow-sm object-cover max-h-[300px]">
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <footer class="bg-slate-900 text-slate-400 py-8 border-t border-slate-800 text-center text-sm">
+        <p>نظام مكافآت عملاء شبكات الإنترنت المحلية © 2026. جميع الحقوق محفوظة.</p>
+    </footer>
+
+</body>
+</html>

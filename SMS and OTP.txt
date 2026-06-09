@@ -1,0 +1,160 @@
+بما أنك تبني الباك اند باستخدام **Laravel** (مع **PHP 8**)، فإن التعامل مع الـ APIs أصبح غاية في السهولة بفضل عميل الـ HTTP المدمج في لارافيل (`Illuminate\Support\Facades\Http`).
+
+سأعطيك كوداً جاهزاً ومنظماً لإرسال الرسائل عبر **Twilio** (كأشهر خيار لفحص الـ API) وعبر **The SMS Works** (الذي يعطيك 50 رسالة مجانية حقيقية).
+
+---
+
+### أولاً: إعداد ملف الـ `.env`
+
+دائماً افصل بيانات الربط (Credentials) في ملف البيئة الخاص بك:
+
+```env
+# في حال استخدام Twilio Sandbox
+TWILIO_ACCOUNT_SID=your_actual_sid_here
+TWILIO_AUTH_TOKEN=your_actual_token_here
+TWILIO_NUMBER=+15017122661
+
+# في حال استخدام The SMS Works (لرسائل حقيقية محدودة)
+SMS_WORKS_KEY=your_api_key_here
+
+```
+
+---
+
+### ثانياً: كود الإرسال داخل الخدمة (Service Class)
+
+يفضل دائماً وضع منطق الإرسال في ملف منفصل (مثلاً `App\Services\SmsService.php`) ليكون كودك نظيفاً وقابلاً لإعادة الاستخدام:
+
+```php
+<?php
+
+namespace App\Services;
+
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
+
+class SmsService
+{
+    /**
+     * إرسال رسالة فحص باستخدام Twilio Sandbox
+     */
+    public function sendViaTwilio(string $to, string $message): bool
+    {
+        $sid = config('services.twilio.sid') ?? env('TWILIO_ACCOUNT_SID');
+        $token = config('services.twilio.token') ?? env('TWILIO_AUTH_TOKEN');
+        $from = config('services.twilio.number') ?? env('TWILIO_NUMBER');
+
+        $url = "https://api.twilio.com/2010-04-01/Accounts/{$sid}/Messages.json";
+
+        // استخدام عميل الـ HTTP الخاص بلارافيل مع ميزات PHP 8
+        $response = Http::withBasicAuth($sid, $token)
+            ->asForm()
+            ->post($url, [
+                'To' => $to,     // يجب أن يكون الرقم مسجلاً ومفعلاً في الـ Sandbox لديك
+                'From' => $from,
+                'Body' => $message,
+            ]);
+
+        if ($response->successful()) {
+            return true;
+        }
+
+        Log::error('Twilio SMS Failed', ['error' => $response->json()]);
+        return false;
+    }
+
+    /**
+     * إرسال رسالة حقيقية باستخدام رصيد ترحيبي من The SMS Works
+     */
+    public function sendViaSmsWorks(string $to, string $message): bool
+    {
+        $apiKey = env('SMS_WORKS_KEY');
+        $url = "https://api.thesmsworks.co.uk/v1/sms/send";
+
+        $response = Http::withHeaders([
+            'Authorization' => $apiKey,
+            'Content-Type' => 'application/json',
+        ])->post($url, [
+            'sender' => 'TEST_AUTH',
+            'destination' => $to, // بصيغة دولية كاملة مثل 966xxxxxxxxx
+            'content' => $message,
+        ]);
+
+        if ($response->json('status') === 'STATUS_ACCEPTED') {
+            return true;
+        }
+
+        Log::error('SMS Works Failed', ['error' => $response->json()]);
+        return false;
+    }
+}
+
+```
+
+---
+
+### ثالثاً: استدعاء الخدمة داخل الـ Controller
+
+يمكنك الآن حقن الخدمة واستخدامها مباشرة في الـ Controller المخصص للفحص والأوامر:
+
+```php
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Services\SmsService;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
+
+class SmsTestController extends Controller
+{
+    // استخدام خاصية PHP 8 Constructor Property Promotion لحقن الخدمة تلقائياً
+    public function __construct(
+        protected SmsService $smsService
+    ) {}
+
+    public function testSms(Request $request): JsonResponse
+    {
+        $request->validate([
+            'phone' => 'required|string',
+            'message' => 'required|string',
+        ]);
+
+        // جرب Twilio أو SMS Works حسب رغبتك
+        $isSent = $this->smsService->sendViaTwilio(
+            to: $request->input('phone'),
+            message: $request->input('message')
+        );
+
+        if ($isSent) {
+            return response()->json([
+                'success' => true,
+                'message' => 'تم إرسال رسالة الفحص بنجاح!'
+            ]);
+        }
+
+        return response()->json([
+            'success' => false,
+            'message' => 'فشل إرسال الرسالة، تحقق من الـ Logs.'
+        ], 500);
+    }
+}
+
+```
+
+### 💡 نصيحة ذكية خاصة بـ لارافيل أثناء التطوير المحلي:
+
+بما أنك في مرحلة فحص النظام (Testing)، لا تحتاج دائماً لاستهلاك رصيد الـ API الفعلي لكل تجربة برمجية. يمكنك تعديل ملف الـ `.env` الخاص بك ليتعامل مع الرسائل كأنها إيميلات تُحفظ محلياً لفحص محتواها:
+
+```env
+SMS_DRIVER=log
+
+```
+
+وفي كود البرمجة الخاص بك، يمكنك وضع شرط: إذا كان الـ Driver هو `log` قم فقط بكتابة محتوى الرسالة في ملف الـ `storage/logs/laravel.log` بدلاً من عمل طلب الـ API الخارجي، وهذا يوفر عليك وقت التنمية بشكل مذهل!
+
+
+
+
+
+نبدا بتجهيز الربط وممكن اختباره برسالة واحدة، ثم نختبر البقية وقت انشاء حسابات المستخدمين
