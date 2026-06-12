@@ -45,7 +45,7 @@ jobs:
         working-directory: user-app
 
       - name: Build APK
-        run: chmod +x gradlew && ./gradlew assembleDebug
+        run: chmod +x gradlew && ./gradlew assembleDebug --info
         working-directory: user-app/android
         env:
           ANDROID_HOME: /usr/local/lib/android/sdk
