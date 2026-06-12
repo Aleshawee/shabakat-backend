@@ -36,5 +36,10 @@ backend/public/build/
 backend/public/hot
 backend/public/storage
 
+# Android / Capacitor
+user-app/android/.gradle/
+user-app/android/local.properties
+user-app/android/app/build/
+
 # Logs
 *.log

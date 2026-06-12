@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">مكافآتي</string>
+    <string name="title_activity_main">مكافآتي</string>
+    <string name="package_name">com.shabakat.rewards</string>
+    <string name="custom_url_scheme">com.shabakat.rewards</string>
+</resources>

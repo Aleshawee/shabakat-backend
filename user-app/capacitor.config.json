@@ -1,0 +1,10 @@
+{
+  "appId": "com.shabakat.rewards",
+  "appName": "مكافآتي",
+  "webDir": "dist",
+  "bundledWebRuntime": false,
+  "server": {
+    "androidScheme": "https",
+    "hostname": "shabakat-backend.onrender.com"
+  }
+}
