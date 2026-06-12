@@ -41,7 +41,7 @@ jobs:
           VITE_API_BASE: 'https://shabakat-backend.onrender.com'
 
       - name: Sync Capacitor
-        run: npx --yes cap copy android
+        run: npx --yes cap sync android
         working-directory: user-app
 
       - name: Build APK
